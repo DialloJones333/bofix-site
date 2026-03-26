@@ -1,0 +1,26 @@
+{
+  "businessName": "BOFIX",
+  "location": "Charlotte, NC",
+  "slogan": "Cracked screen? Dead battery? Don't stress. I fix it FAST.",
+  "turnaround": "30-45 minutes",
+  "socials": {
+    "instagram": "Bofixnc",
+    "facebook": "Bofix",
+    "tiktok": "bofixiphones"
+  },
+  "services": {
+    "batteryReplacement": {
+      "startingPrice": 60
+    },
+    "screenRepairs": [
+      { "model": "iPhone 8/ SE", "price": 65 },
+      { "model": "iPhone X / XR", "price": 75 },
+      { "model": "iPhone 11", "price": 89 },
+      { "model": "iPhone 12", "price": 109 },
+      { "model": "iPhone 13", "price": 119 },
+      { "model": "iPhone 14", "price": 139 },
+      { "model": "iPhone 15", "price": 179 },
+      { "model": "iPhone 16", "price": 209 }
+    ]
+  }
+}
