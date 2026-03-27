@@ -1,11 +1,51 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "../styles/global.css";
+// Import JSON data and pricing table component
+import bofixData from "../data/bofix.json";
+import PricingTable from "../components/PricingTable.astro";
+// Import React components
+import BookingForm from "../components/BookingForm.jsx";
+import ContactInfo from "../components/ContactInfo.jsx";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{bofixData.businessName} - Phone Repair</title>
+  </head>
+  <body class="bg-gray-100 min-h-screen font-sans text-gray-900">
+    <header class="bg-blue-600 text-white py-16 px-6 text-center shadow-md">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-5xl font-black tracking-tight mb-4">
+          {bofixData.businessName}
+        </h1>
+        <p class="text-2xl font-medium mb-8 text-blue-100">
+          {bofixData.slogan}
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 text-sm font-bold mt-4">
+          <span class="bg-blue-800 px-5 py-2 rounded-full shadow-sm"
+            >📍 {bofixData.location}</span
+          >
+          <span class="bg-blue-800 px-5 py-2 rounded-full shadow-sm"
+            >⏱️ {bofixData.turnaround}</span
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 pb-16">
+      {/* Render the table component */}
+      <PricingTable />
+
+      <section class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        {
+          /* client:visible tells Astro to only load React when the user scrolls down to this section */
+        }
+        <BookingForm client:visible />
+        <ContactInfo />
+      </section>
+    </main>
+  </body>
+</html>
