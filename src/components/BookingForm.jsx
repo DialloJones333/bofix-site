@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function BookingForm() {
   const [formData, setFormData] = useState({
@@ -39,10 +39,16 @@ export default function BookingForm() {
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">
+          {/* Added htmlFor="name" */}
+          <label
+            htmlFor="name"
+            className="block text-sm font-semibold text-gray-700 mb-1"
+          >
             Your Name
           </label>
+          {/* Added id="name" */}
           <input
+            id="name"
             type="text"
             name="name"
             required
@@ -54,10 +60,14 @@ export default function BookingForm() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">
+            <label
+              htmlFor="phoneModel"
+              className="block text-sm font-semibold text-gray-700 mb-1"
+            >
               iPhone Model
             </label>
             <select
+              id="phoneModel"
               name="phoneModel"
               required
               onChange={handleChange}
@@ -70,10 +80,14 @@ export default function BookingForm() {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">
+            <label
+              htmlFor="location"
+              className="block text-sm font-semibold text-gray-700 mb-1"
+            >
               Meeting Location
             </label>
             <input
+              id="location"
               type="text"
               name="location"
               required
@@ -85,10 +99,14 @@ export default function BookingForm() {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">
+          <label
+            htmlFor="issue"
+            className="block text-sm font-semibold text-gray-700 mb-1"
+          >
             What needs fixing?
           </label>
           <textarea
+            id="issue"
             name="issue"
             required
             onChange={handleChange}

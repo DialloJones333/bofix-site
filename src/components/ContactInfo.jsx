@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function ContactInfo() {
   return (
     <div className="bg-gray-900 text-white p-8 rounded-xl shadow-lg flex flex-col justify-center h-full">
