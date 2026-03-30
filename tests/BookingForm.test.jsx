@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import BookingForm from "../src/components/BookingForm.jsx";
 
@@ -23,10 +23,19 @@ describe("BookingForm Component", () => {
     expect(nameInput).toHaveValue("Jane Doe");
   });
 
-  it("shows a success message when submitted", () => {
+  // Notice we added 'async' here
+  it("shows a success message when submitted", async () => {
+    // 1. Intercept the network request and force a successful "fake" response
+    globalThis.fetch = vi.fn(() =>
+      Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve({ success: true }),
+      }),
+    );
+
     render(<BookingForm />);
 
-    // Fill out ALL required fields so the simulated browser allows the form to submit
+    // Fill out the form
     fireEvent.change(screen.getByLabelText("Your Name"), {
       target: { value: "John Smith" },
     });
@@ -40,14 +49,15 @@ describe("BookingForm Component", () => {
       target: { value: "Shattered screen" },
     });
 
-    // Find the submit button and click it
+    // Click submit
     const submitButton = screen.getByRole("button", {
       name: "Send Booking Request",
     });
     fireEvent.click(submitButton);
 
-    // Verify the success message appears
-    expect(screen.getByText("Request Received!")).toBeInTheDocument();
+    // 2. Use 'await findByText' instead of 'getByText'.
+    // This tells the test to wait patiently for the "Sending..." state to finish!
+    expect(await screen.findByText("Request Received!")).toBeInTheDocument();
     expect(screen.getByText(/Thanks John Smith/i)).toBeInTheDocument();
   });
 });
