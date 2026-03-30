@@ -1,6 +1,7 @@
-import React from "react";
-
 export default function ContactInfo() {
+  // Replace this with your coworker's actual business phone number
+  const phoneNumber = "9802331276";
+
   return (
     <div className="bg-gray-900 text-white p-8 rounded-xl shadow-lg flex flex-col justify-center h-full">
       <h2 className="text-2xl font-extrabold mb-4">
@@ -11,16 +12,28 @@ export default function ContactInfo() {
         social media and we'll get your repair scheduled right away.
       </p>
 
+      {/* The Direct Messaging Action Area */}
       <div className="space-y-4 mb-8">
-        {/* Placeholder for actual phone number logic (href="sms:+1234567890") */}
+        {/* SMS Deep Link */}
         <a
-          href="#"
-          className="flex items-center gap-3 bg-white text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+          href={`sms:+1${phoneNumber}`}
+          className="flex items-center justify-center gap-3 bg-white text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
         >
           <span className="text-xl">📱</span> Text Me Directly
         </a>
+
+        {/* Facebook Messenger Deep Link */}
+        <a
+          href="https://m.me/Bofix"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-3 bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
+        >
+          <span className="text-xl">💬</span> Message on Facebook
+        </a>
       </div>
 
+      {/* Social Media Directory */}
       <div>
         <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
           Connect on Socials
@@ -30,25 +43,25 @@ export default function ContactInfo() {
             href="https://instagram.com/Bofixnc"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 transition-colors font-medium"
+            className="text-blue-400 hover:text-blue-300 transition-colors font-medium flex items-center gap-2"
           >
-            Instagram: @Bofixnc
+            📸 Instagram: @Bofixnc
           </a>
           <a
             href="https://facebook.com/Bofix"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 transition-colors font-medium"
+            className="text-blue-400 hover:text-blue-300 transition-colors font-medium flex items-center gap-2"
           >
-            Facebook: Bofix
+            📘 Facebook: Bofix
           </a>
           <a
-            href="https://tiktok.com/@bofixiphones"
+            href="https://www.tiktok.com/@bofixiphones"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 transition-colors font-medium"
+            className="text-blue-400 hover:text-blue-300 transition-colors font-medium flex items-center gap-2"
           >
-            TikTok: @bofixiphones
+            🎵 TikTok: @bofixiphones
           </a>
         </div>
       </div>

@@ -8,16 +8,42 @@ export default function BookingForm() {
     location: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Added a loading state
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In the future, this is where Axios or Formspree will be used to actually send the data.
-    console.log("Booking request:", formData);
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+
+    // TODO: Replace 'formspreeEndpoint' with the ID linked to Bomani's email
+    const formspreeEndpoint = "https://formspree.io/f/mnjodaqg";
+
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert(
+          "Oops! There was a problem submitting your form. Please try texting instead.",
+        );
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Something went wrong. Please try texting instead.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -118,9 +144,14 @@ export default function BookingForm() {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors shadow-md"
+          disabled={isSubmitting}
+          className={`w-full text-white font-bold py-3 px-4 rounded-lg transition-colors shadow-md ${
+            isSubmitting
+              ? "bg-blue-400 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700"
+          }`}
         >
-          Send Booking Request
+          {isSubmitting ? "Sending..." : "Send Booking Request"}
         </button>
       </form>
     </div>
