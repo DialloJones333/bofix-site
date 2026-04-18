@@ -18,8 +18,7 @@ export default function BookingForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // TODO: Replace 'formspreeEndpoint' with the ID linked to Bomani's email
-    const formspreeEndpoint = "https://formspree.io/f/mnjodaqg";
+    const formspreeEndpoint = "https://formspree.io/f/myklwzao";
 
     try {
       const response = await fetch(formspreeEndpoint, {

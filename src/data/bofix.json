@@ -17,10 +17,10 @@
       { "model": "iPhone X / XR", "price": 75 },
       { "model": "iPhone 11", "price": 89 },
       { "model": "iPhone 12", "price": 109 },
-      { "model": "iPhone 13", "price": 119 },
-      { "model": "iPhone 14", "price": 139 },
-      { "model": "iPhone 15", "price": 179 },
-      { "model": "iPhone 16", "price": 209 }
+      { "model": "iPhone 13", "price": 120 },
+      { "model": "iPhone 14", "price": 120 },
+      { "model": "iPhone 15", "price": 130 },
+      { "model": "iPhone 16", "price": 150 }
     ]
   }
 }

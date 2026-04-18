@@ -1,5 +1,5 @@
 export default function ContactInfo() {
-  // Replace this with your coworker's actual business phone number
+  // Bomani's Phone Number
   const phoneNumber = "9802331276";
 
   return (
@@ -7,6 +7,7 @@ export default function ContactInfo() {
       <h2 className="text-2xl font-extrabold mb-4">
         Fast. Affordable. Mobile.
       </h2>
+
       <p className="text-gray-300 mb-8 leading-relaxed">
         Don't want to fill out a form? No problem. Shoot me a text or a DM on
         social media and we'll get your repair scheduled right away.
@@ -17,19 +18,19 @@ export default function ContactInfo() {
         {/* SMS Deep Link */}
         <a
           href={`sms:+1${phoneNumber}`}
+          aria-label={`Send SMS to +1 ${phoneNumber}`}
           className="flex items-center justify-center gap-3 bg-white text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
         >
           <span className="text-xl">📱</span> Text Me Directly
         </a>
 
-        {/* Facebook Messenger Deep Link */}
+        {/* Optional: phone call fallback */}
         <a
-          href="https://m.me/Bofix"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-3 bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
+          href={`tel:+1${phoneNumber}`}
+          aria-label={`Call +1 ${phoneNumber}`}
+          className="flex items-center justify-center gap-3 bg-gray-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-700 transition-colors"
         >
-          <span className="text-xl">💬</span> Message on Facebook
+          <span className="text-xl">📞</span> Call Me
         </a>
       </div>
 
@@ -38,27 +39,33 @@ export default function ContactInfo() {
         <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
           Connect on Socials
         </h3>
+
         <div className="flex flex-col gap-3">
           <a
-            href="https://instagram.com/Bofixnc"
+            href="https://instagram.com/Bofix.nc"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Instagram profile Bofixnc (opens in new tab)"
             className="text-blue-400 hover:text-blue-300 transition-colors font-medium flex items-center gap-2"
           >
             📸 Instagram: @Bofixnc
           </a>
+
           <a
-            href="https://facebook.com/Bofix"
+            href="https://www.facebook.com/profile.php?id=61578538001572"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Facebook page Bofix (opens in new tab)"
             className="text-blue-400 hover:text-blue-300 transition-colors font-medium flex items-center gap-2"
           >
             📘 Facebook: Bofix
           </a>
+
           <a
             href="https://www.tiktok.com/@bofixiphones"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="TikTok profile bofixiphones (opens in new tab)"
             className="text-blue-400 hover:text-blue-300 transition-colors font-medium flex items-center gap-2"
           >
             🎵 TikTok: @bofixiphones
